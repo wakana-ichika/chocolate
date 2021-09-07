@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block slider %}
+{% endblock %}
+{% block content %}
+  <main>
+    <section class="style">
+      <h2>Baked</h2>
+      <ul>
+        {% for goods in goods_list %}
+        {% if goods.group_id == 3 %}
+        <li>
+          <dl>
+            <dt>
+              <div>
+                  <a href="{% url 'goods:goods_detail' goods.pk %}">
+                    <img src="/static{{ goods.image.url }}" alt="{{ goods.name }}">
+                  </a>
+                </div>
+            </dt>
+            <dd>
+              <p><a href="{% url 'goods:goods_detail' goods.pk %}">{{ goods.name }}</a></p>
+              <p><span>税込　￥{{ goods.add_tax }}</span></p>
+              <p>本体価格　￥{{ goods.price }}</p>
+              <button type="button" onclick="location.href='{% url 'goods:goods_detail' goods.pk %}'" class="btn">カートへ入れる</button>
+            </dd>
+          </dl>
+        </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </section>
+  </main>
+{% endblock %}
+
+{% block script %}
+{% endblock %}
+{% block slider2 %}
+{% endblock %}
+</body>
+</html>

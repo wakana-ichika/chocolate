@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block slider %}
+{% endblock %}
+{% block content %}
+
+<section id="detail" class="style">
+  <h2>商品説明</h2>
+  <table>
+      <tr>
+            <td><div><img src="/static{{ object.image.url }}" alt="{{ object.name }}"></div></td>
+            <td>
+                <div>
+                    <h3>{{ object.name }}</h3>
+                    <p><span>税込み　￥{{ object.add_tax }}</span></p>
+                    <p>本体価格　￥{{ object.price }}</p>
+                    <p>{{ object.text }}</p>
+                </div>
+                <hr>
+                {% if user.is_authenticated %}
+                    <form action="{% url 'store:add_modelcart' %}" method="post">
+                        {{ form.non_field_errors }}
+                        {% for field in form %}
+                            <label for="{{ field.id_for_label }}">{{ field.label_tag }}</label>
+                            {{ field }}
+                            {{ field.name_errors }}
+                        {% endfor %}
+                        {% csrf_token %}
+                        <input type="hidden" name="goods_pk" value="{{ object.pk }}">
+                        <p class="cart">カートへ追加しました</p>
+                        <button type="submit" class="btn">カートへ入れる</button>
+                    </form>
+                {% else %}
+                    <form action="{% url 'store:add_sessioncart' %}" method="post">
+                        {{ form.non_field_errors }}
+                        {% for field in form %}
+                        <label for="{{ field.id_for_label }}">{{ field.label_tag }}</label>
+                        {{ field }}
+                        {{ field.name_errors }}
+                        {% endfor %}
+                        {% csrf_token %}
+                        <input type="hidden" name="goods_pk" value="{{ object.pk }}">
+                        <p class="cart">カートへ追加しました</p>
+                        <button type="submit" class="btn">カートへ入れる</button>
+                    </form>
+            {% endif %}
+            </td>
+      </tr>
+  </table>
+</section>
+{% endblock %}
+
+{% block slider2 %}
+{% endblock %}

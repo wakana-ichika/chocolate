@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block slider %}{% endblock %}
+
+{% block content %}
+<main id="preview">
+<section class="style">
+    <h2>購入確認</h2>
+    <dl>
+        <dt><h3>購入内容</h3></dt>
+        <dd>
+            <table>
+                <thead>
+                    <tr>
+                        <th>商品名</th>
+                        <th>購入数</th>
+                        <th>小計</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for unit in small %}
+                    <tr>
+                        <td>{{ unit.goods }}</td>
+                        <td>{{ unit.quantity }}</td>
+                        <td>￥{{ unit.price }}</td>
+                    </tr>
+                {% endfor %}
+                    <tr>
+                        <td colspan="2">配送料・手数料</td>
+                        <td>￥0</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2">合計（税込み）</td>
+                        <td>￥{{ total_price }}</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </dd>
+        <dt><h3>ご請求額</h3></dt>
+        <dd>￥{{ total_price }}</dd>
+        <dt><h3>お届け先</h3></dt>
+        <dd>
+            <p>{{ user.name }}（{{ user.furigana }})　様</p>
+            <p>〒{{ user.post_code }}</p>
+            <p>{{ user.address1 }} {{ user.address2 }}</p>
+            <p>{{ user.address3|default:''}}</p>
+        </dd>
+    </dl>
+    <form action="{% url 'store:shopping_process' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="uname" value="{{ user.name }}">
+        <input type="submit" value="購入確定" class="btn">
+    </form>
+</section>
+</main>
+{% endblock %}
+{% block script %}
+{% endblock %}
+{% block slider2 %}
+{% endblock %}

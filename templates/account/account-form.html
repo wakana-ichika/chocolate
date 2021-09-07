@@ -1,0 +1,234 @@
+{% extends 'base.html' %}
+{% block slider %}
+{% endblock %}
+{% block content %}
+  <main id="form">
+    <section class="style">
+      <h2>新規登録</h2>
+      {% if 'shopping' in request.GET.next_page or 'shopping' in request.POST.next_page %}
+        <form action="{% url 'account:account_confirm' %}" method="post" class="h-adr">
+          {% csrf_token %}
+          <span class="p-country-name" style="display: none;">Japan</span>
+          {{ form.non_field_errors }}
+          <table id="account">
+            <tr>
+              <th>
+                <label for="{{ form.name.id_for_label }}">氏名</label>
+              </th>
+            </tr>
+            <tr>
+              <td>
+                {{ form.name }}
+                {{ form.name.errors }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <label for="{{ form.furigana.id_for_label }}">フリガナ</label>
+              </th>
+            </tr>
+            <tr>
+              <dd>
+                {{ form.furigana }}
+                {{ form.furigana.errors }}
+              </dd>
+            </tr>
+            <tr>
+              <th>
+                <label for="{{ form.tell.id_for_label }}">お電話番号</label>
+              </th>
+            </tr>
+            <tr>
+              <td>
+                {{ form.tell }}
+                {{ form.tell.errors }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                住所
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li><label for="{{ form.post_code.id_for_label }}">郵便番号</label></li>
+                  <li>
+                    {{ form.post_code }}
+                    {{ form.post_code.errors }}
+                  </li>
+                  <li><label for="{{ form.address1.id_for_label }}">都道府県</label></li>
+                  <li>
+                    {{ form.address1 }}
+                    {{ form.address1.errors }}
+                  </li>
+                  <li><label for="{{ form.address2.id_for_label }}">市町村</label></li>
+                  <li>
+                    {{ form.address2 }}
+                    {{ form.address2.errors }}
+                  </li>
+                  <li><label for="{{ form.address3.id_for_label }}">マンション名・部屋番号</label></li>
+                  <li>
+                    {{ form.address3 }}
+                    {{ form.address3.errors }}
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <label for="{{ form.email.id_for_label }}">メールアドレス</label>
+              </th>
+            </tr>
+            <tr>
+              <td>
+                {{ form.email }}
+                {{ form.email.errors }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <label for="{{ form.password1.id_for_label }}">パスワード</label>
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    {{ form.password1 }}
+                    {{ form.password1.errors }}
+                  </li>
+                  <li><label for="{{ form.password2.id_for_label }}">パスワードの確認</label></li>
+                  <li>
+                    {{ form.password2 }}
+                    {{ form.password2.errors }}
+                  </li>
+                  <li>・８文字以上の半角英数字でお願いいたします。</li>
+                  <li>・最低限、小文字と数字を組み合わせたものが必要です。</li>
+                  <li>・123など予想がつきやすいもの、法則性のあるものは無効となります。</li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+          <input type="hidden" name="next_page" value="shopping">
+          <input type="submit" value="確認画面へ" class="btn">
+        </form>
+      {% else %}
+        <form action="{% url 'account:account_confirm' %}" method="post" class="h-adr">
+          {% csrf_token %}
+          <span class="p-country-name" style="display: none;">Japan</span>
+          {{ form.non_field_errors }}
+          <table id="account">
+            <tr>
+              <th>
+                <label for="{{ form.name.id_for_label }}">氏名</label>
+              </th>
+            </tr>
+            <tr>
+              <td>
+                {{ form.name }}
+                {{ form.name.errors }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <label for="{{ form.furigana.id_for_label }}">フリガナ</label>
+              </th>
+            </tr>
+            <tr>
+              <td>
+                {{ form.furigana }}
+                {{ form.furigana.errors }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <label for="{{ form.tell.id_for_label }}">お電話番号</label>
+              </th>
+            </tr>
+            <tr>
+              <td>
+                {{ form.tell }}
+                {{ form.tell.errors }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                住所
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li><label for="{{ form.post_code.id_for_label }}">郵便番号</label></li>
+                  <li>
+                    {{ form.post_code }}
+                    {{ form.post_code.errors }}
+                  </li>
+                  <li><label for="{{ form.address1.id_for_label }}">都道府県</label></li>
+                  <li>
+                    {{ form.address1 }}
+                    {{ form.address1.errors }}
+                  </li>
+                  <li><label for="{{ form.address2.id_for_label }}">市町村</label></li>
+                  <li>
+                    {{ form.address2 }}
+                    {{ form.address2.errors }}
+                  </li>
+                  <li><label for="{{ form.address3.id_for_label }}">マンション名・部屋番号</label></li>
+                  <li>
+                    {{ form.address3 }}
+                    {{ form.address3.errors }}
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <label for="{{ form.email.id_for_label }}">メールアドレス</label>
+              </th>
+            </tr>
+            <tr>
+              <td>
+                {{ form.email }}
+                {{ form.email.errors }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                <label for="{{ form.password1.id_for_label }}">パスワード</label>
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <ul>
+                  <li>
+                    {{ form.password1 }}
+                    {{ form.password1.errors }}
+                  </li>
+                  <li><label for="{{ form.password2.id_for_label }}">パスワードの確認</label></li>
+                  <li>
+                    {{ form.password2 }}
+                    {{ form.password2.errors }}
+                  </li>
+                  <li>・8文字以上の16文字以内の半角英数で入力してください。</li>
+                  <li>・大文字、小文字、数字を組み合わせたものでお願いいたします。</li>
+                  <li>・123など予想がつきやすいもの、法則性のあるものは無効となります。</li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+          <input type="submit" value="確認画面へ" class="btn">
+        </form>
+      {% endif %}
+    </section>
+  </main>
+{% endblock %}
+
+{% block script %}
+{% endblock %}
+{% block slider2 %}
+<script src="https://yubinbango.github.io/yubinbango/yubinbango.js"></script>
+{% endblock %}
+</body>
+</html>

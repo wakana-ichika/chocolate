@@ -1,0 +1,189 @@
+{% extends 'base.html' %}
+{% block slider %}
+{% endblock %}
+{% block content %}
+  <main id="form">
+    <section class="style">
+      <h2>新規登録</h2>
+
+      {% if 'shopping' in request.POST.next_page %}
+        <form action="{% url 'account:account_after' %}" method="post">
+          <table id="account">
+            <tr>
+              <th>
+              氏名
+              </th>
+            </tr>
+            <tr>
+              <td>
+              {{ form.name.value }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                フリガナ
+              </th>
+            </tr>
+            <tr>
+              <td>
+                {{ form.furigana.value }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                お電話番号
+              </th>
+            </tr>
+            <tr> 
+              <td>
+                {{ form.tell.value }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                住所
+              </th>
+            </tr>
+            <tr>
+              <td>
+
+                {{ form.post_code.value }}<br>
+
+                {{ form.address1.value }}<br>
+
+                {{ form.address2.value }}<br>
+
+                {{ form.address3.value }}<br>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                メールアドレス
+              </th>
+            </tr>
+            <tr>
+              <td>
+                {{ form.email.value }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                パスワード
+              </th>
+            </tr>
+            <tr>
+              <td>
+                {{ form.password1.value }}
+              </td>
+            </tr>
+          </table>
+          {% csrf_token %}
+          {% for field in form %}
+            {{ field.as_hidden }}
+          {% endfor %}
+          <input type="hidden" name="next_page" value="shopping">
+          <input type="submit" value="確定" class="btn">
+        </form>
+        <form action="{% url 'account:account_input' %}" method="post">
+          {% csrf_token %}
+          {% for field in form %}
+            {{ field.as_hidden }}
+          {% endfor %}
+          <input type="hidden" name="next_page" value="shopping">
+          <button type="submit" class="btn">戻る</button>
+        </form>
+      {% else %}
+        <form action="{% url 'account:account_after' %}" method="post">
+          <table id="account">
+            <tr>
+              <th>
+                氏名
+              </th>
+            </tr>
+            <tr>
+              <td>
+                {{ form.name.value }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                フリガナ
+              </th>
+            </tr>
+            <tr>
+              <td>
+                {{ form.furigana.value }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                お電話番号
+              </th>
+            </tr>
+            <tr>
+              <td>
+                {{ form.tell.value }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                住所
+              </th>
+            </tr>
+            <tr>
+              <td>
+                {{ form.post_code.value }}<br>
+
+                {{ form.address1.value }}<br>
+
+                {{ form.address2.value }}<br>
+
+                {{ form.address3.value }}<br>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                メールアドレス
+              </th>
+            </tr>
+            <tr>
+              <td>
+                {{ form.email.value }}
+              </td>
+            </tr>
+            <tr>
+              <th>
+                パスワード
+              </th>
+            </tr>
+            <tr>
+              <td>
+                {{ form.password1.value }}
+              </td>
+            </tr>
+          </table>
+          {% csrf_token %}
+          {% for field in form %}
+            {{ field.as_hidden }}
+          {% endfor %}
+          <input type="submit" value="確定" class="btn">
+        </form>
+        <form action="{% url 'account:account_input' %}" method="post">
+          {% csrf_token %}
+          {% for field in form %}
+            {{ field.as_hidden }}
+          {% endfor %}
+          <button type="submit" class="btn">戻る</button>
+        </form>
+      {% endif %}
+
+    </section>
+  </main>
+{% endblock %}
+
+{% block script %}
+{% endblock %}
+{% block slider2 %}
+{% endblock %}
+</body>
+</html>

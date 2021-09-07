@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta name="port-view", content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=2, user-scalable=yes">
+    <meta charset="UTF-8">
+    <title>商品カテゴリ作成</title>
+</head>
+<body>
+<h2>商品カテゴリ作成</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="作成">
+</form>
+</body>
+</html>

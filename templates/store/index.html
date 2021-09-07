@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <main>
+    <div id="main-v">
+      {% if user.is_authenticated %}
+      <p>ようこそ{{ user.name }}様</p>
+      {% else %}
+      <p>ようこそゲスト様</p>
+      {% endif %}
+      <h1 class="slider">
+        <div><a href="#"><img src="{% static 'images/top01.jpg' %}" width="1198px" height="460px" alt="new-item01"/></a></div>
+        <div><a href="#"><img src="{% static 'images/top02.jpg' %}" width="1198px" height="460px" alt="new-item02"/></a></div>
+        <div><a href="#"><img src="{% static 'images/top03.jpg' %}" width="1198px" height="460px" alt="new-item03"/></a></div>
+      </h1>
+    </div>
+    <section class="style">
+      <h2>Pick Up</h2>
+      <ul>
+        {% for goods in pick_up %}
+        <li>
+          <dl>
+            <dt>
+              <div>
+                <a href="{% url 'goods:goods_detail' goods.pk %}">
+                  <img src="/static{{ goods.image.url }}" alt="{{ goods.name }}">
+                </a>
+              </div>
+            </dt>
+            <dd>
+              <p><a href="{% url 'goods:goods_detail' goods.pk %}">{{ goods.name }}</a></p>
+              <p><span>税込　￥{{ goods.add_tax }}</span></p>
+              <p>本体価格　￥{{ goods.price }}</p>
+              <button type="button" onclick="location.href='{% url 'goods:goods_detail' goods.pk %}'" class="btn">カートへ入れる</button>
+            </dd>
+          </dl>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <div class="bgcolor">
+      <section class="style">
+        <h2>Seasonal</h2>
+        <ul>
+          {% for goods in goods_list %}
+          {% if goods.management_code == 's-01' or goods.management_code == 's-02' or goods.management_code == 's-03' %}
+          <li>
+            <dl>
+              <dt>
+                <div>
+                  <a href="{% url 'goods:goods_detail' goods.pk %}">
+                    <img src="/static{{ goods.image.url }}" alt="{{ goods.name }}">
+                  </a>
+                </div>
+              </dt>
+              <dd>
+                <p><a href="{% url 'goods:goods_detail' goods.pk %}">{{ goods.name }}</a></p>
+                <p><span>税込　￥{{ goods.add_tax }}</span></p>
+                <p>本体価格　￥{{ goods.price }}</p>
+                <button type="button" onclick="location.href='{% url 'goods:goods_detail' goods.pk %}'" class="btn">カートへ入れる</button>
+              </dd>
+            </dl>
+          </li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </section>
+    </div>
+
+    <section class="style" id="choco">
+      <h2>Chocolate</h2>
+      <ul>
+        {% for goods in goods_list %}
+        {% if goods.management_code == 'c-02' or goods.management_code == 'c-03' %}
+        <li>
+          <dl>
+            <dt>
+              <div>
+                  <a href="{% url 'goods:goods_detail' goods.pk %}">
+                    <img src="/static{{ goods.image.url }}" alt="{{ goods.name }}">
+                  </a>
+              </div>
+            </dt>
+            <dd>
+              <a href="{% url 'goods:goods_detail' goods.pk %}">{{ goods.name }}</a><br>
+              <p><span>税込　￥{{ goods.add_tax }}</span></p>
+              <p>本体価格　￥{{ goods.price }}</p>
+              <button type="button" onclick="location.href='{% url 'goods:goods_detail' goods.pk %}'" class="btn">カートへ入れる</button>
+            </dd>
+          </dl>
+        </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </section>
+
+    <section class="style" id="baked">
+      <h2>Baked</h2>
+      <ul>
+        {% for goods in goods_list %}
+        {% if goods.management_code == 'b-02' or goods.management_code == 'b-03' %}
+        <li>
+          <dl>
+            <dt>
+              <div>
+                  <a href="{% url 'goods:goods_detail' goods.pk %}">
+                    <img src="/static{{ goods.image.url }}" alt="{{ goods.name }}">
+                  </a>
+                </div>
+            </dt>
+            <dd>
+              <a href="{% url 'goods:goods_detail' goods.pk %}">{{ goods.name }}</a><br>
+              <p><span>税込　￥{{ goods.add_tax }}</span></p>
+              <p>本体価格　￥{{ goods.price }}</p>
+              <button type="button" onclick="location.href='{% url 'goods:goods_detail' goods.pk %}'" class="btn">カートへ入れる</button>
+            </dd>
+          </dl>
+        </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </section>
+
+    <div class="bgcolor">
+      <section class="style" id="anniversary">
+        <h2>Anniversary</h2>
+        <ul>
+          {% for goods in goods_list %}
+          {% if goods.management_code == 'a-02' or goods.management_code == 'a-03' %}
+          <li>
+            <dl>
+              <dt>
+                <div>
+                  <a href="{% url 'goods:goods_detail' goods.pk %}">
+                    <img src="/static{{ goods.image.url }}" alt="{{ goods.name }}">
+                  </a>
+                </div>
+              </dt>
+              <dd>
+                <a href="{% url 'goods:goods_detail' goods.pk %}">{{ goods.name }}</a>
+                <br>
+                <p><span>税込　￥{{ goods.add_tax }}</span></p>
+                <p>本体価格　￥{{ goods.price }}</p>
+                <button type="button" onclick="location.href='{% url 'goods:goods_detail' goods.pk %}'" class="btn">カートへ入れる</button>
+              </dd>
+            </dl>
+          </li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+      </section>
+    </div>
+
+    <a href="#" id="search">条件検索</a>
+
+
+    <section class="style" id="info">
+      <h2>Infomation</h2>
+      <ul>
+        <li>
+          <time datetime="2021-02-20">2021/02/20</time>
+          チョコレートの祭典無事に終了いたしました
+        </li>
+      <li>
+          <time datetime="2021-01-01">2021/01/01</time>
+          チョコレートの祭典にて出店決定致しました
+        </li>
+        <li>
+          <time datetime="2021-12-27">2020/12/27</time>
+          営業時間が縮小されます
+        </li>
+        <li>
+          <time datetime="2021-12-14">2020/12/14</time>
+          世界チョコレートコンテスト7位入賞しました
+        </li>
+        <li>
+          <time datetime="2021-12-07">2020/12/07</time>
+          世界チョコレートコンテストに参加
+        </li>
+      </ul>
+    </section>
+  </main>
+
+
+{% endblock %}

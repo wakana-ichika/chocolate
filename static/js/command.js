@@ -1,0 +1,1 @@
+$(function(){  $(".btn").on("mouseup", function(){    $(this).parent().prev('.cart').animate({"opacity": 1}, 300);    $(this).parent().prev().animate({"opacity": 0}, 1000);  });})

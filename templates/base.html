@@ -1,0 +1,126 @@
+<!doctype html>
+{% load static %}
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=2, user-scalable=yes">
+{% block title %}<title>I.A.chocolate</title>{% endblock %}
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+{% block slider %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+{% endblock %}
+</head>
+
+<body>
+
+
+  <header>
+    <div>
+      <div id="logo">
+        <a href="{% url 'store:home' %}"><img src="{% static 'images/I.A.Chocolate.png' %}" width="370" height="61" alt="I.A.Chocolate"/></a>
+      </div>
+      {% if user.is_authenticated %}
+      <ul>
+        <li>
+          <a href="{% url 'account:logout' %}">ログアウト</a>
+        </li>
+        <li>
+          <a href="#">マイページ</a>
+        </li>
+        <li>
+          <a href="{% url 'store:modelcart_content' user.pk %}"><img src="{% static 'images/cart.png' %}" width="40" height="37" alt="カート"/></a>
+        </li>
+      </ul>
+      {% else %}
+      <ul>
+        <li>
+          <a href="{% url 'account:login' %}">ログイン</a>
+        </li>
+        <li>
+          <a href="#">マイページ</a>
+        </li>
+        <li>
+          <a href="{% url 'store:sessioncart_content' %}"><img src="{% static 'images/cart.png' %}" width="40" height="37" alt="カート"/></a>
+        </li>
+      </ul>
+      {% endif %}
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <a href="{% url 'store:seasonal' %}">Seasonal</a>
+        </li>
+        <li>
+          <a href="{% url 'store:chocolate' %}">Chocolate</a>
+        </li>
+        <li>
+          <a href="{% url 'store:baked' %}">Baked</a>
+        </li>
+        <li>
+          <a href="{% url 'store:anniversary' %}">Anniversary</a>
+        </li>
+        <li>
+          <a href="{% url 'account:contact' %}">お問い合わせ</a>
+        </li>
+      </ul>
+    </nav>
+    <form action="#" method="get">
+      <input type="search">
+      <input type="submit" value="検索">
+    </form>
+  </header>
+
+
+
+  {% block content %}
+  {% endblock %}
+
+
+
+  <footer>
+    <div>
+      <section>
+        <h3>カテゴリ</h3>
+        <ul>
+          <li><a href="{% url 'store:seasonal' %}">期間限定</a></li>
+          <li><a href="{% url 'store:chocolate' %}">チョコレート</a></li>
+          <li><a href="{% url 'store:baked' %}">焼き菓子</a></li>
+          <li><a href="{% url 'store:anniversary' %}">アニバーサリー</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>その他</h3>
+        <ul>
+          <li><a href="#">よくあるお問い合わせ</a></li>
+        </ul>
+      </section>
+    </div>
+    <aside>
+      <ul>
+        <li><img src="{% static 'images/sns01.png' %}" width="130" height="130" alt="face-book"/></li>
+        <li><img src="{% static 'images/sns02.png' %}" width="130" height="130" alt="insta"/></li>
+        <li><img src="{% static 'images/sns03.png' %}" width="130" height="130" alt="twitter"/></li>
+      </ul>
+    </aside>
+    <a href="index.html"><img src="{% static 'images/I.A.Chocolate.png' %}" width="370" height="61" alt="I.A.chocolate"/></a>
+    <p>&copy; 20XX I.A.chocolate</p>
+  </footer>
+
+{% block script %}
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="{% static 'js/command.js' %}"></script>
+{% endblock %}
+{% block slider2 %}
+  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      $('.slider').bxSlider({
+        auto: true,
+        slideMargin: 10
+      });
+    });
+  </script>
+{% endblock %}
+</body>
+</html>

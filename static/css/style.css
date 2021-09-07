@@ -1,0 +1,485 @@
+@charset "UTF-8";
+
+*{
+  margin: 0;
+  padding: 0;
+ box-sizing: border-box;
+}
+body {
+  font-size: 16px;
+  font-family: YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "serif";
+  line-height: 1.5em;
+
+}
+ul, li {
+  list-style-type: none;
+}
+img {
+  display: block;
+  border: none;
+}
+a {
+  color: #000000;
+  display: block;
+  text-decoration: none;
+  line-height: 1em;
+}
+header a, footer a {
+color: #ffffff;}
+a:hover {
+  opacity: 0.6;
+  transition: all ease 0.3s;
+}
+
+
+/* index設定 */
+/* header設定 */
+
+
+header {
+  background-color: #552e2e;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+header > div {
+  height: 100px;
+}
+#logo {
+  float: left;
+  margin: 19.5px 0 19.5px 30px;
+}
+header > div ul {
+  float: right;
+  margin: 55px 100px 0 0;
+}
+header > div ul li {
+  float: left;
+  margin-left: 60px;
+}
+header > div ul li:first-child {
+  margin-left: 0;
+}
+header > div li:nth-child(1) a, header > div li:nth-child(2) a {
+  padding-top: 15px;
+}
+nav {
+  clear: both;
+  background-color: #765a37;
+  height: 50px;
+}
+nav li {
+  width: 20%;
+  float: left;
+  text-align: center;
+}
+nav li a {
+  height: 50px;
+  padding: 17px 10px;
+}
+header form {
+  clear: both;
+  width: 100%;
+  height: 50px;
+  background-color: #000000;
+  text-align: center;
+}
+header form input[type="search"] {
+  width: 760px;
+  margin-top: 15px;
+}
+header form input[type="submit"] {
+  width: 95px;
+}
+
+
+/* header設定end */
+/* main設定 */
+
+
+#main-v {
+  width: calc(100% - 200px);
+  height: auto;
+  margin: 0 auto 100px auto;
+}
+#main-v p {
+  height: 50px;
+  padding-top: 15px;
+}
+#main-v img {
+  width: 100%;
+  height: auto;
+}
+.style {
+  text-align: center;
+  padding: 100px 0 50px 0;
+}
+.style h2 {
+  margin-bottom: 50px;
+  color: #552e2e;
+}
+.style h2:before {
+  content: "";
+  display: inline-block;
+  height: 3px;
+  width: 25px;
+  background-color: #552e2e;
+  margin: 0 25px 10px 0;
+}
+.style h2:after {
+  content: "";
+  display: inline-block;
+  height: 3px;
+  width: 25px;
+  background-color: #552e2e;
+  margin: 0 0 10px 25px;
+}
+.style ul {
+  overflow: hidden;
+  width: calc(100% - 200px);
+  margin: auto;
+}
+.style li {
+  width: 25%;
+  float: left;
+  margin-right: calc(25% / 2);
+  margin-bottom: 50px;
+}
+.style li:nth-child(3n){
+  margin-right: 0;
+}
+
+.style dt div {
+  max-width: 100%;
+  height: auto;
+  overflow: hidden;
+} 
+.style img {
+  width: 100%;
+  height: auto;
+}
+.style dd {
+  width: 100%;
+  text-align: left;
+  padding: 10px;
+}
+.style span {
+  color: #827717;
+}
+#detail table {
+  width: 650px;
+  margin: auto;
+  text-align: left;
+}
+#detail td{
+  overflow: hidden;
+}
+#detail td > div {
+  width: 300px;
+  height: auto;
+  float: right;
+  margin-right: 50px;
+}
+
+
+#detail h3 {
+  margin-bottom: 1em;
+}
+#detail hr {
+  margin-bottom: 10px;
+}
+#detail .btn {
+  width: 150px;
+  margin-top: 0;
+}
+.btn {
+  background-color: #000000;
+  width: 100%;
+  height: 40px;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "serif";
+  margin-top: 30px;
+  position: relative;
+}
+.cart {
+  width: 100%;
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  margin: 5px 0;
+  opacity: 0;
+}
+.bgcolor {
+  background-color: #ffee9d;
+  width: 100%;
+  clear: both;
+  overflow: hidden;
+}
+.bgcolor .style li {
+  background-color: #FFFFFF;
+  padding: 10px;
+}
+#choco, #anniversary {
+  width: 50%;
+  float: left;
+}
+#baked {
+  width: 50%;
+  float: right;
+}
+#choco ul, #baked ul, #anniversary ul {
+  width: 100%;
+}
+#choco li, #baked li, #anniversary li {
+  width: 40%;
+  margin: 0 calc(20% / 3) 50px calc(20% / 3);
+}
+#choco li:first-child, #baked li:first-child, #anniversary li:first-child {
+  margin-right: 0;
+}
+#search {
+  width: 400px;
+  height: 100px;
+  margin: 100px auto 100px auto;
+  background-color: #765a37;
+  border-radius: 10px;
+  color: #FFFFFF;
+  font-size: 30px;
+  text-align: center;
+  padding-top: 35px;
+}
+#info ul {
+  width: 40%;
+}
+#info li {
+  width: 100%;
+  float: none;
+  text-align: left;
+  margin-bottom: 0;
+}
+#info time {
+  color: #552e2e;
+  margin-right: 20px;
+  font-weight: bold;
+}
+#form form {
+  width: 1200px;
+  margin:0 auto 50px auto;
+  padding: 50px 0;
+  border: solid 5px #765a37;
+  border-radius: 30px;
+}
+#form table {
+  width: 550px;
+  margin:0 auto 50px auto;
+  text-align: left;
+}
+#form div {
+  padding: 10px 0;
+}
+#form td input {
+  width: 385px;
+  padding: 5px;
+}
+#form td textarea {
+  width: 385px;
+  padding: 5px;
+}
+#form .btn {
+  width: 300px;
+  margin-top: 30px;
+}
+#form p {
+  padding-top: 50px;
+}
+#form a {
+  width: 300px;
+  height: 40px;
+  margin: 23px auto 0 auto;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-weight: bold;
+  padding-top: 12px;
+  line-height: 1em;
+}
+#account {
+  width: 600px;
+  margin: auto;
+}
+#account th {
+  background-color: silver;
+  padding: 5px 0 5px 5px;
+}
+#account td {
+  padding: 10px 0 20px 0;
+}
+#account input {
+  margin-left: 35px;
+}
+#account ul {
+  width: 570px;
+  margin-left: 30px;
+}
+#account li {
+  float: none;
+  width: 570px;
+  margin: 0;
+}
+#account li input {
+  margin: 5px 0 15px 5px;
+}
+#account tr:nth-child(8) li:last-child input {
+  margin-bottom: 0;
+}
+
+#cart div {
+  width: 1200px;
+  border: solid 5px #765a37;
+  border-radius: 30px;
+  padding: 50px 0;
+  margin: 0 auto 50px auto;
+}
+#cart table {
+  width: 800px;
+  margin: auto;
+  border-collapse: collapse;
+  padding: 20px;
+  text-align: right;
+}
+#cart thead th:first-child, #cart tbody td:first-child, #cart tfoot td:first-child {
+  text-align: left;
+}
+#cart thead th:first-child, #cart tbody td:first-child {
+  width: 300px;
+}
+#cart thead th {
+  border-bottom: solid 1px #765a37;
+}
+#cart tfoot td {
+  border-top: solid 1px #765a37;
+  padding-top: 10px;
+  font-size: 1.5em;
+}
+#cart tbody tr:first-child td {
+  padding-top: 25px;
+}
+#cart tbody tr:last-child td {
+  padding-bottom: 25px;
+}
+#cart tbody td {
+  overflow: hidden;
+  clear:both;
+}
+#cart tbody span {
+  float: right;
+  padding: 0 10px;
+}
+#cart tbody .pm {
+  float: right;
+  margin:0 10px;
+}
+#cart tbody .pm input[type=submit] {
+ width: 20px;
+}
+#cart .delete {
+  width: 50px;
+  background-color: #FFFFFF;
+}
+#cart .btn {
+  width: 300px;
+}
+#preview table {
+  width: 500px;
+  margin: auto;
+  text-align: right;
+}
+#preview tr td:first-child, #preview tr th:first-child {
+  text-align: left;
+}
+#preview dl {
+  width: 500px;
+  margin: auto;
+  text-align: left;
+}
+#preview dt {
+  margin-top: 25px;
+}
+#preview .btn {
+  width: 300px;
+}
+#done {
+  width: 800px;
+  margin:100px auto;
+  text-align: center;
+}
+
+
+/* main設定end */
+/*footer設定*/
+
+
+footer {
+  clear: both;
+  width: 100%;
+  background-color: #552e2e;
+  color: #FFFFFF;
+  overflow: hidden;
+}
+footer a {
+  line-height: 1.5em;
+}
+footer div {
+  overflow: hidden;
+  width: 450px;
+  margin: 25px auto 40px auto;
+}
+footer section:first-child {
+  float: left;
+}
+footer section:last-child {
+  float: right;
+}
+footer h3 {
+  margin-bottom: 25px;
+}
+footer h3:before {
+  content: "";
+  display: inline-block;
+  height: 3px;
+  width: 20px;
+  background-color: #ffffff;
+  margin: 0 20px 7px 0;
+}
+footer h3:after {
+  content: "";
+  display: inline-block;
+  height: 3px;
+  width: 20px;
+  background-color: #ffffff;
+  margin: 0 0 7px 20px;
+}
+footer aside ul {
+  text-align: center;
+  margin-bottom: 40px;
+}
+footer aside li {
+  display: inline-block;
+  margin: 0px 5px 0 5px;
+}
+footer aside img {
+  width: 35px;
+  height: auto;
+}
+footer img {
+  width: 370px;
+  margin: auto;
+}
+footer p {
+  text-align: center;
+  padding: 20px;
+}
+
+/*footer設定end*/
+/* index設定end */

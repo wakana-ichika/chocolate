@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block slider %}
+{% endblock %}
+
+{% block content %}
+  <main id="form">
+    <section class="style">
+      <h2>ログイン</h2>
+      <form method="post">
+        {% csrf_token %}
+          <table>
+            {{ form.non_field_errors }}
+            <tr>
+              <th><label for="form.username.id_for_label">メールアドレス</label></th>
+              <td>
+                <div>
+                  {{ form.username }}
+                  {{ form.username.errors }}
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th><label for="form.password.id_for_label">パスワード</label></th>
+              <td>
+                <div>
+                  {{ form.password }}
+                  {{ form.password.errors }}
+                </div>
+              </td>
+            </tr>
+          </table>
+        <input type="submit" value="送信" class="btn">
+      </form>
+      <p>まだ会員登録をされていない方へ</p>
+      {% if 'shopping' in request.GET.next_page %}
+        <div>
+          <a href="{% url 'account:account_input' %}?next_page=shopping">新規登録</a>
+        </div>
+      {% else %}
+        <div>
+          <a href="{% url 'account:account_input' %}">新規登録</a>
+        </div>
+      {% endif %}
+    </section>
+  </main>
+{% endblock %}
+
+{% block script %}
+{% endblock %}
+{% block slider2 %}
+{% endblock %}
+
+
